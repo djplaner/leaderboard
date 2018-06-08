@@ -54,10 +54,28 @@ var myCallback = function( error, options, response ) {
     }
 };
 
+var myRowTemplate = function( row ) {
+    rowString = "";
+
+    // use modulo to decide row class
+
+    // create the string
+    rowString = "<tr>";
+    rowString += "  <td> " + row.num + " </td>"; // rank number
+    rowString += "  <td> " + row.cells.Year + " </td> ";
+    rowString += "  <td> " + row.cells.Responses + " </td>";
+    rowString += "  <td> " + row.cells.Percentage + " </td>";
+    rowString += "</tr>";
+
+    return rowString
+    //return "<h1> Hello " + row.num + "</h1>"
+}
+
 // Load top ten switch hitters.
 $('#SETleaderboard').sheetrock({
   url: mySpreadsheet,
   query: "select A,B,C,D order by C desc",
+  rowTemplate: myRowTemplate,
   callback: myCallback
 });
 
