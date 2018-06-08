@@ -6,10 +6,8 @@
     <body>
         <h1>Leaderboard</h1>
 
-        <div id="leaderboard"> 
             <table class="generaltable" style="width:50%" id="SETleaderboard">
             </table> 
-        </div>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -19,18 +17,22 @@
 var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1o7Dqv8XK54yVrvAmbJvsf88ot2QssSxUMJM4wP8q204/edit#gid=0';
 
 var myRowTemplate = function( row ) {
+    if ( row.num ==0 ) {
+        return ' <tr> <th style="text-align:right"> Rank </th> <th style="text-align:right"> Year </th> <th style="text-align:right"> Responses </th> <th style="text-align:right"> Percentage </th> </tr> '
+    }
     rowString = "";
     rowClass = '';
     if ( row.cells.Current == 'yes' ) {
         rowClass= 'color: #FF2222';
     }
 
+    num = row.num++;
     rowString = '<tr style="' + rowClass + '">';
-    rowString += "  <td> " + row.num++ + " </td>"; 
-    rowString += "  <td> " + row.cells.Year + " </td> ";
-    rowString += "  <td> " + row.cells.Responses + " </td>";
-    rowString += "  <td> " + row.cells.Percentage + " </td>";
-    rowString += "</tr>";
+    rowString += '  <td style="text-align:right"> ' + num + ' </td>'; 
+    rowString += '  <td style="text-align:right"> ' + row.cells.Year + ' </td> ';
+    rowString += '  <td style="text-align:right"> ' + row.cells.Responses + ' </td>';
+    rowString += '  <td style="text-align:right"> ' + row.cells.Percentage + ' </td>';
+    rowString += '</tr>';
 
     return rowString
 }
@@ -38,7 +40,7 @@ var myRowTemplate = function( row ) {
 $('#SETleaderboard').sheetrock({
   url: mySpreadsheet,
   query: "select A,B,C,D order by C desc",
-  rowTemplate: myRowTemplate
+  rowTemplate: myRowTemplate,
 });
 
 
