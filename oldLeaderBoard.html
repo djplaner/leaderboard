@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title> Hello OLD leaderboard </title>
+    </head>
+
+    <body>
+        <h1>Leaderboard</h1>
+
+        <div id="leaderboard"> 
+            <table class="generaltable" style="width:50%" id="SETleaderboard">
+                <tbody>
+                    <th style="text-align:right"> Rank</th>
+<th style="text-align:right"> Year</th>
+<th style="text-align:right"> Responses</th>
+<th style="text-align:right"> Percentage</th>
+                </tbody>
+            </table> 
+        </div>
+
+
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script> -->
+
+<script src="https://djon.es/sheetrock.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1o7Dqv8XK54yVrvAmbJvsf88ot2QssSxUMJM4wP8q204/edit#gid=0';
+
+// Load top ten switch hitters.
+//$('#leaderboard').sheetrock({
+$('#SETleaderboard').sheetrock({
+//sheetrock({
+  url: mySpreadsheet,
+  query: "select A,B,C,D order by C desc",
+  callback: myCallback,
+});
+</script></div>

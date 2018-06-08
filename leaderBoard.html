@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title> Hello leaderboard </title>
+    </head>
+
+    <body>
+        <h1>Leaderboard</h1>
+
+        <div id="leaderboard"> 
+            <table class="generaltable" style="width:50%" id="SETleaderboard">
+                <tbody>
+                    <th style="text-align:right"> Rank</th>
+<th style="text-align:right"> Year</th>
+<th style="text-align:right"> Responses</th>
+<th style="text-align:right"> Percentage</th>
+                </tbody>
+            </table> 
+        </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+<script type="text/javascript">
+var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/1o7Dqv8XK54yVrvAmbJvsf88ot2QssSxUMJM4wP8q204/edit#gid=0';
+
+var myCallback = function( error, options, response ) {
+    if ( !error ) {
+        var last = 'table_row';
+        for ( var row=1; row<response.rows.length; row++ ) {
+            var rowClass = 'table_row';
+
+            if ( response.rows[row].cellsArray[3] == 'yes' ) {
+                rowClass = "color: #FF2222";
+            } else {
+                rowClass = "";
+            }
+            /*    if ( last == 'table_row' ) {
+                    last = 'table_alt_row';
+                    rowClass = 'table_row';
+                } else {
+                    last = 'table_row' ;
+                    rowClass = 'table_alt_row';
+                }
+            } */
+
+            $('#SETleaderboard').append(
+                '<tr style="' + rowClass + '">' +
+                '<td style="text-align: right"> ' + row + ' </td> ' +
+                '<td style="text-align: right"> ' + response.rows[row].cellsArray[0] + '</td>' +
+                ' <td style="text-align: right"> ' + response.rows[row].cellsArray[1] + ' </td>' +
+                ' <td style="text-align: right"> ' + response.rows[row].cellsArray[2] + ' </td></tr>' );
+        }
+    }
+};
+
+// Load top ten switch hitters.
+$('#SETleaderboard').sheetrock({
+  url: mySpreadsheet,
+  query: "select A,B,C,D order by C desc",
+  callback: myCallback
+});
+
+
+</script></div>
