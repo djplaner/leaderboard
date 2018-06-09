@@ -9,8 +9,6 @@
             <table class="generaltable" style="width:50%" id="SETleaderboard">
             </table> 
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
 
 <script type="text/javascript">
@@ -37,11 +35,11 @@ var myRowTemplate = function( row ) {
     return rowString
 }
 
-$('#SETleaderboard').sheetrock({
-  url: mySpreadsheet,
-  query: "select A,B,C,D order by C desc",
-  rowTemplate: myRowTemplate,
-});
+    leaderboard = document.getElementById("SETleaderboard")
 
-
+    sheetrock({ 
+        target: leaderboard,
+        url: mySpreadsheet, query: "select A,B,C,D order by C desc", 
+        rowTemplate: myRowTemplate, 
+    });
 </script></div>
