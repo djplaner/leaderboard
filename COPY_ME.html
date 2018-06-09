@@ -1,0 +1,36 @@
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-sheetrock/1.1.4/dist/sheetrock.min.js"></script>
+
+<script type="text/javascript">
+var mySpreadsheet = '**COPY AND PASTE GOOGLE SHEET URL BETWEEN QUOTES';
+
+var myRowTemplate = function( row ) {
+    if ( row.num ==0 ) {
+        return ' <tr> <th style="text-align:right"> Rank </th> <th style="text-align:right"> Year </th> <th style="text-align:right"> Responses </th> <th style="text-align:right"> Percentage </th> </tr> '
+    }
+    rowString = "";
+    rowClass = '';
+    if ( row.cells.Current == 'yes' ) {
+        rowClass= 'color: #FF2222';
+    }
+
+    num = row.num++;
+    rowString = '<tr style="' + rowClass + '">';
+    rowString += '  <td style="text-align:right"> ' + num + ' </td>';
+    rowString += '  <td style="text-align:right"> ' + row.cells.Year + ' </td> ';
+    rowString += '  <td style="text-align:right"> ' + row.cells.Responses + ' </td>';
+    rowString += '  <td style="text-align:right"> ' + row.cells.Percentage + ' </td>';
+    rowString += '</tr>';
+
+    return rowString
+}
+
+// $('#SETleaderboard').sheetrock({
+    leaderboard = document.getElementById("SETleaderboard")
+
+    sheetrock({
+        target: leaderboard,
+        url: mySpreadsheet, query: "select A,B,C,D order by C desc",
+        rowTemplate: myRowTemplate,
+    });
+</script></div>
