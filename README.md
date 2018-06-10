@@ -1,11 +1,13 @@
 
 # About
 
-Leaderboard is a simple combination of HTML+Javascript (HT: [Sheetrock](https://github.com/chriszarate/sheetrock)) to embed a student evaluation of teaching (SET) response leaderboard in any web page.  It's orgins as are a personal kludge, which has evolved to be used by others.
+Leaderboard is a simple combination of HTML+Javascript (HT: [Sheetrock](https://github.com/chriszarate/sheetrock)) to embed a student evaluation of teaching (SET) response leaderboard in any web page.  It's orgins as are <a href="https://djon.es/blog/2016/05/23/automating-a-set-leaderboard/">a personal kludge</a>, which has evolved to be used by others.
 
 The following image is a representation of how it works.
 
 ![SET leaderboard in action](https://i0.wp.com/c1.staticflickr.com/5/4207/35314111366_4a463eabd7_z.jpg?resize=640%2C251&ssl=1)
+
+It's also an example of the notion of a [digital renovator](http://maha.uk.fedwikihappening.net/view/digital-renovator)
 
 # Why?
 
@@ -20,7 +22,7 @@ The purpose of the leaderboard is to increase response rates from students evalu
 
 # How to use it
 
-1. Copy [this example Google spreadsheet](https://docs.google.com/spreadsheets/d/1o7Dqv8XK54yVrvAmbJvsf88ot2QssSxUMJM4wP8q204/edit#gid=0)) and modify it with your data.
+1. Copy [this example Google spreadsheet](https://docs.google.com/spreadsheets/d/1o7Dqv8XK54yVrvAmbJvsf88ot2QssSxUMJM4wP8q204/edit#gid=0) and modify it with your data.
 > See [this page](http://djon.es/blog/creating-a-set-leaderboard/#spreadsheet) for some more detail
 1. Copy the contents of [the COPY_ME.html file](https://github.com/djplaner/leaderboard/blob/master/COPY_ME.html), paste it into your HTML file, and replace `**COPY AND PASTE GOOGLE SHEET URL BETWEEN QUOTES` with the URL for your Google spreadsheet
 > See [this page](http://djon.es/blog/creating-a-set-leaderboard/#html) for some more detail
