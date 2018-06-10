@@ -1,7 +1,7 @@
 
 # About
 
-Leaderboard is a simple combination of HTML+Javascript (HT: [Sheetrock](https://github.com/chriszarate/sheetrock)) to embed a student evaluation of teaching (SET) response leaderboard in any web page.  It's orgins as are <a href="https://djon.es/blog/2016/05/23/automating-a-set-leaderboard/">a personal kludge</a>, which has evolved to be used by others.
+Leaderboard is a simple combination of HTML+Javascript (HT: [Sheetrock](https://github.com/chriszarate/sheetrock)) to embed a student evaluation of teaching (SET) response leaderboard in any web page.  It's orgins are as <a href="https://djon.es/blog/2016/05/23/automating-a-set-leaderboard/">a personal kludge</a> evolving into something used by a few others at one institution.
 
 The following image is a representation of how it works.
 
